@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	
+	
+	<head>
+		<meta charset="UTF-8">
+		<link href="./style/style.css" rel="stylesheet" />
+		<script>
+		function afficheVille() { alert(villeChoisie); }
+			{
+			 // 1. Récupération de la valeur courante du select avec son id
+			 let nomVilleChoisie = document.getElementById("ChoixVille").value;
+			 // 2. Récupération de la liste de toutes les div correspondant à une div de météo
+			// grâce à la classe « ville »
+			 let villes =document.getElementByClassName("Ville");
+			 // 3. Parcours de la liste des div météo. On cache celles non sélectionnées.
+			 for (i=0; i<villes.length; i++) 
+			 {
+			 // l’attribut id de l’élément est comparée à la ville choisie
+			 if (villes[i].id == nomVilleChoisie) 
+			 {
+			 // garder l'élément visible -> ELEMENT.style.display= "";
+				villes[i].style.display="block";
+			 } else 
+			 {
+			 // cacher l'élément -> ELEMENT.style.display= "none";
+				villes[i].style.display="none";
+			 }
+			 }
+			}
+		</script>
+	</head>
+
+		<header>
+			<p>TD n°1 Programmation web – Application météo</p>
+		</header>
+			<body>
+	 <select onchange=afficheVille()>
+		<option value="Niort">Niort</option>
+		<option value="Rio">Rio</option>
+		<option value="Reykjavik">Reykjavik</option>
+		
+		<p id="ville"></p>
+		
+	 </select>
+		<div class="container">
+			<div id="Niort" class="ville">
+				 <h2>Niort</h2>
+				 <p>12°, pluvieux</p>
+				 <img src="./image/pluvieux.png" width="25%"/>
+			 </div>
+			 
+			 <div id="Rio" class="ville">
+				 <h2>Rio de Janeiro</h2>
+				 <p>29°, orageux</p>
+				 <img src="./image/orageux.png" width="25%"/>
+			 </div>	
+			 
+			 <div id="Reykjavik" class="ville">	
+				 <h2>Reykjavik</h2>
+				 <p>-10°, ensoleillé</p>
+				 <img src="./image/ensoleille.png" width="25%"/>
+			 </div>
+		</div>
+			 
+			 <footer>
+				<p>Mulot Axel</p>
+				<p>Icônes météo par <a href="https://thenounproject.com">The Noun Project</a></p>
+			</footer>
+		 
+	</body>
+</html>
